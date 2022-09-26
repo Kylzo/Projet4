@@ -9,18 +9,21 @@ Créez un fichier .env contenant :
 IMAGE_DIRNAME=images
 ```
 
-
+```sh
 MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournit pour la soutenance"
-
+```
 
 Ensuite :
 
+```sh
 npm install 
+```
 
 Et :
 
+```sh
 nodemon server.js (Si ça ne fonctionne pas, supprimer le dossier node_module et relancer npm install).
-
+```
 
 
 Front end
