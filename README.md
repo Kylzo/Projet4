@@ -39,9 +39,7 @@ nodemon server
 Front end
 ---------
 
-Tout d'abord faites un :
-
-Créez un fichier .env contenant :
+Tout d'abord créez un fichier .env contenant :
 
 ```sh
 VITE_API_URL="http://localhost:3000/api" ou autre port selon vos habitudes.
