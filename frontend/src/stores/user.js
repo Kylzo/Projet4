@@ -7,7 +7,7 @@ if (localStorage.getItem('bearerToken')) {
 
 
 const userId = localStorage.getItem('userId');
-const isAdmin = localStorage.getItem('632c581c7a94b4ab91ed83ac');
+const isAdmin = localStorage.getItem('isAdmin');
 
 
 export const useUserStore = defineStore({

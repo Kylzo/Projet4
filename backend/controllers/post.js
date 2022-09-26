@@ -102,32 +102,43 @@ exports.updatePost = async (req, res, next) => {
   }
 };
 
-exports.deletePost = async (req, res, next) => {
 
-  const postId = req.params.id;
-  const oldPost = await Post.findOne({ _id: postId });
+
+
+
+
+
+exports.deletePost = async (req, res, next) => {
   try {
 
-    if (oldPost.user_id !== req.auth.userId) {
-      res.status(401).json({
-        type: 'error',
-        publicMessage: 'Vous n\'avez pas les permissions pour mettre à jour ce post.',
-      });
-    }
+    const postId = req.params.id;
+    const oldPost = await Post.findOne({ _id: postId });
+    const docUser = await User.findOne({ _id: req.auth.userId })
+    let isAdmin = docUser.is_admin
 
-    const filename = oldPost.image_url.split('/images/')[1];
-    fs.unlink(`images/${filename}`, () => {
+    if (oldPost.user_id === req.auth.userId || isAdmin) {
       Post.deleteOne({
         _id: req.params.id,
       })
         .then((thing) => res.status(200).json({
           type: 'success',
         }))
-        .catch((error) => res.status(404).json({
+        .catch((error) => res.status(201).json({
           type: 'error',
           publicMessage: error.message,
         }));
-    });
+
+      const filename = oldPost.image_url.split('/images/')[1];
+      fs.unlink(`images/${filename}`, () => {
+      });
+
+    } else {
+      res.status(401).json({
+        type: 'error',
+        publicMessage: 'Vous n\'avez pas les permissions pour mettre à jour ce post.',
+      });
+    }
+
   } catch (error) {
     res.status(404).json({
       type: 'error',
@@ -135,6 +146,13 @@ exports.deletePost = async (req, res, next) => {
     });
   }
 };
+
+
+
+
+
+
+
 
 exports.getOnePost = (req, res, next) => {
   Post.findOne({
