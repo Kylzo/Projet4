@@ -33,16 +33,19 @@ Tout d'abord faites un :
 
 Créez un fichier .env contenant :
 
+```sh
 VITE_API_URL="http://localhost:3000/api" ou autre port selon vos habitudes.
-
+```
 
 Ensuite :
 
+```sh
 npm install 
-
+```
 
 Et :
 
+```sh
 npm run dev 
-
+```
 
