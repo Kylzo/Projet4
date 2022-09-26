@@ -1,0 +1,367 @@
+:root {
+    --div-txt-color: #000;
+    --div-bg-color: #e8f3ff;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+
+html,
+body,
+#app,
+.site {
+    height: 100%;
+}
+
+
+.site {
+    display: flex;
+    flex-direction: column;
+    font-family: lato;
+    font-size: large;
+}
+
+button {
+    cursor: pointer;
+}
+
+/*------------------------------------
+- utilities
+------------------------------------*/
+.dblock {
+    display: block;
+}
+
+.mlauto {
+    margin-left: auto;
+    font-size: medium;
+}
+
+.mtauto {
+    margin-top: auto;
+}
+
+/*------------------------------------
+- header
+------------------------------------*/
+header {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 2px solid #ffd7d7;
+}
+
+.logo {
+    object-fit: cover;
+    width: 200px;
+    height: 100px;
+}
+
+.admin-account {
+    position: absolute;
+    top: 55px;
+    left: 200px;
+    color: #fd2d01;
+    font-weight: bold;
+}
+
+header nav {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.signup {
+    background-color: #fd2d01;
+    color: white;
+    padding-inline: 4px;
+    border: 0.5px solid #fd2d01;
+}
+
+.signup:hover {
+    box-shadow: 1px 1px 4px 0px #0000004f;
+}
+
+.test {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+/*------------------------------------
+- main
+------------------------------------*/
+main {
+    flex-grow: 1;
+    height: auto;
+    background-color: #ffd7d733;
+}
+
+main .homepage,
+main .formpage,
+main .postpage {
+    height: 100%;
+    text-align: center;
+    flex-grow: 1;
+    padding: 20px
+}
+
+
+/*------------------------------------
+- home page
+------------------------------------*/
+.homepage p {
+    margin-top: 50px;
+    padding: 20px
+}
+
+/*------------------------------------
+- login page
+------------------------------------*/
+.formpage form {
+    margin: 0 auto;
+    width: 50%;
+    background: #ffffff;
+    color: black;
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ffd7d7;
+    box-shadow: 10px 10px 20px 0px #0000004f;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.formpage form .form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.formpage form .form-control input,
+.formpage form .form-control textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: large;
+    background-color: #b38e8e2b;
+    border-radius: 5px;
+}
+
+.formpage form .form-control textarea {
+    min-height: 150px;
+}
+
+.formpage form button {
+    padding: 5px;
+}
+
+.formpage form button {
+    border-radius: 10px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+
+.formpage .img-preview img {
+    width: 200px;
+}
+
+.formpage .error {
+    color: #fd2d01;
+    font-weight: bold;
+}
+
+/*------------------------------------
+- posts page
+------------------------------------*/
+.postpage .posts-topbar {
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.postpage .posts-topbar button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.postpage .posts-container {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+}
+
+.postpage .posts-container .post-item {
+    padding: 20px;
+    width: 700px;
+    background: #ffffff;
+    color: var(--div-txt-color);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffd7d7;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 0px #0000004f;
+}
+
+.postpage .posts-container .post-item .likebar {
+    margin-top: 2px;
+    text-align: right;
+    font-size: 12px
+}
+
+.postpage .posts-container .post-item .likebar i {
+    color: #09b517;
+    font-size: 15px;
+    padding: 5px;
+}
+
+
+.postpage .posts-container .post-item .text {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.postpage .posts-container .post-item img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.postpage .posts-container .post-item-footer {
+    font-size: 12px;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+}
+
+.postpage .posts-container .post-item-footer .like-button {
+    font-size: 10px;
+    padding: 3px
+}
+
+.postpage .posts-container .post-item-actions {
+    display: flex;
+    font-size: 12px;
+    margin-top: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+.postpage .posts-container .post-item-actions a {
+    color: #3061d7;
+}
+
+
+.postpage .posts-container .post-item-actions a:hover {
+    color: blue;
+}
+
+.fa-trash {
+    color: #fd2d01;
+    font-size: 18px;
+}
+
+.fa-pen {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+}
+
+.fa-thumbs-up {
+    margin-bottom: 2px;
+    padding-left: 2px;
+}
+
+.fa-home {
+    color: Black;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 35px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+}
+
+.fa-home:hover {
+    color: #fd2d01;
+    box-shadow: 1px 1px 4px 0px #0000004f;
+}
+
+.fa-circle {
+    font-size: small;
+    color: red
+}
+
+.fa-arrow-right {
+    position: absolute;
+    right: 12px;
+    top: 42px;
+    font-size: 25px;
+}
+
+/*------------------------------------
+- All button
+------------------------------------*/
+
+.button-all {
+    width: 200px;
+    background-color: #fd2d01;
+    font-weight: bold;
+    font-size: large;
+    height: 50px;
+    border: 0.5px solid #ffffff00;
+    color: white;
+}
+
+.button-signup {
+
+    width: 200px;
+    background-color: #fd2d01;
+    font-weight: bold;
+    font-size: large;
+    height: 50px;
+    border: 0.5px solid #ffffff00;
+    color: white;
+
+}
+
+.button-login {
+
+    width: 200px;
+    background-color: red;
+    font-weight: bold;
+    font-size: large;
+    height: 50px;
+    border: 0.5px solid #ffffff00;
+    color: white;
+
+}
+
+.button-all:hover {
+    background-color: #fd2d01;
+    ;
+}
+
+/*------------------------------------
+- footer
+------------------------------------*/
+footer {
+    background: #ffd7d7;
+
+    margin-top: auto;
+    padding: 20px;
+}
