@@ -1,9 +1,9 @@
 <script setup>
 
 import axios from '@/axios.js';
-import {ref} from 'vue';
-import {useRouter} from 'vue-router/dist/vue-router';
-import {useUserStore} from '../stores/user';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router/dist/vue-router';
+import { useUserStore } from '../stores/user';
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -24,7 +24,7 @@ function handleForm() {
     method: 'post',
     url: apiUrl,
     data: payload,
-  }).then(function(r) {
+  }).then(function (r) {
     userStore.login(r.data);
     localStorage.setItem('bearerToken', r.data.token);
     localStorage.setItem('userId', r.data.user_id);
@@ -37,8 +37,8 @@ function handleForm() {
     axios.defaults.headers = {
       'Authorization': `Bearer ${r.data.token}`,
     };
-    router.push({name: 'posts'});
-  }).catch(function(response) {
+    router.push({ name: 'posts' });
+  }).catch(function (response) {
     errorMsg.value = response.data.error;
   });
 
@@ -47,24 +47,24 @@ function handleForm() {
 </script>
 
 <template>
-<div class="formpage">
-  <form>
+  <div class="formpage">
+    <form>
 
-    <p class="error" v-if="errorMsg">{{ errorMsg }}</p>
+      <p class="error" v-if="errorMsg">{{ errorMsg }}</p>
 
 
-    <div class="form-control">
-      <input id="id-email" type="text" placeholder="Adresse e-mail" v-model="email">
-    </div>
+      <div class="form-control">
+        <input id="id-email" type="text" placeholder="Adresse e-mail" v-model="email">
+      </div>
 
-    <div class="form-control">
-      <input id="id-password" type="password" placeholder="Mot de passe" v-model="password">
-    </div>
+      <div class="form-control">
+        <input id="id-password" type="password" placeholder="Mot de passe" v-model="password">
+      </div>
 
-<div>
-  <button type="submit" className="button-login" @click.prevent="handleForm()">Se connecter</button>
-</div>
-    
-  </form>
-</div>
+      <div>
+        <button type="submit" className="button-login" @click.prevent="handleForm()">Se connecter</button>
+      </div>
+
+    </form>
+  </div>
 </template>

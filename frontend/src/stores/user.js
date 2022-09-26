@@ -1,11 +1,14 @@
-import {defineStore} from 'pinia';
+import { defineStore } from 'pinia';
 
 let isAlreadyLoggedIn = false;
 if (localStorage.getItem('bearerToken')) {
   isAlreadyLoggedIn = true;
 }
+
+
 const userId = localStorage.getItem('userId');
 const isAdmin = localStorage.getItem('632c581c7a94b4ab91ed83ac');
+
 
 export const useUserStore = defineStore({
   id: 'user',
@@ -14,7 +17,7 @@ export const useUserStore = defineStore({
     userId: userId,
     isAdmin: isAdmin,
   }),
-  
+
   actions: {
     register(data) {
       this.isLoggedIn = true;

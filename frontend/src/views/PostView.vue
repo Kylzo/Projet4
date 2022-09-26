@@ -1,18 +1,17 @@
 <script setup>
 
 import { RouterLink } from 'vue-router';
-
 import axios from '@/axios.js';
 import { ref } from 'vue';
 import { useUserStore } from '../stores/user';
 import { storeToRefs } from 'pinia/dist/pinia';
 
+
 const apiUrl = import.meta.env.VITE_API_URL + '/posts';
 const userStore = useUserStore();
-
 const { isLoggedIn, userId, isAdmin } = storeToRefs(userStore);
-
 const posts = ref([]);
+
 
 function refresh() {
 
@@ -77,11 +76,11 @@ function likePost(id) {
           {{ post.text }}
         </p>
         <img v-if="post.image_url" :src="post.image_url" :alt="post.title" :title="post.title">
-        
+
 
         <div class="likebar" v-if="post.likes > 0">
-            <i class="fas fa-thumbs-up"></i> {{ post.likes }}
-          </div>
+          <i class="fas fa-thumbs-up"></i> {{ post.likes }}
+        </div>
 
         <div class="post-item-footer">
           <button v-if="!post.users_liked.includes(userId)" @click.prevent="likePost(post._id)" class="like-button">
@@ -89,7 +88,7 @@ function likePost(id) {
             J'aime !
           </button>
 
-          
+
 
           <span class="mlauto">{{post.firstname + " " + "le" + " " + post.date_creation.slice(0, 19).replace('T', ' ')
           }}</span>

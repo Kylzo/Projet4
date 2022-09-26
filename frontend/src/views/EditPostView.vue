@@ -1,8 +1,8 @@
 <script setup>
 
 
-import {ref} from 'vue';
-import {useRouter, useRoute} from 'vue-router';
+import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import axios from '../axios';
 
 const router = useRouter();
@@ -26,14 +26,14 @@ const apiPostIdUrl = import.meta.env.VITE_API_URL + '/posts/' + postId;
 axios({
   method: 'get',
   url: apiPostIdUrl,
-}).then(function(r) {
+}).then(function (r) {
   const post = r.data
-  title.value=  post.title
-  text.value=  post.text
-  image_url.value=  post.image_url
+  title.value = post.title
+  text.value = post.text
+  image_url.value = post.image_url
 
 
-}).catch(function(response) {
+}).catch(function (response) {
   console.log(response);
 });
 
@@ -47,10 +47,6 @@ function onFileChanged($event) {
   if (target && target.files) {
     file.value = target.files[0];
     image_url.value = URL.createObjectURL(file.value);
-
-    /**
-     * Fix bug with the footer going up
-     */
     window.scrollTo(0, 0);
   }
 }
@@ -73,17 +69,17 @@ function handleForm() {
     body: formData,
     headers,
   })
-    .then(async function(r) {
+    .then(async function (r) {
       const jsonData = await r.json();
       if ('success' === jsonData.type) {
-        router.push({name: 'posts'});
+        router.push({ name: 'posts' });
       } else {
         errorMsg.value = jsonData.publicMessage;
       }
 
-    }).catch(function(error) {
-    errorMsg.value = error;
-  });
+    }).catch(function (error) {
+      errorMsg.value = error;
+    });
 
 }
 
@@ -91,32 +87,28 @@ function handleForm() {
 
 <template>
 
-<div class="formpage">
+  <div class="formpage">
 
 
-  <form>
-    <h1>Modifier un post</h1>
-    <div class="form-control">
-      <input type="text" id="id-title" placeholder="Titre" v-model="title" />
-    </div>
-
-    <div class="form-control">
-      <textarea id="id-text" v-model="text" placeholder="Ecrivez un message..."></textarea>
-    </div>
-
-    <div class="form-control">
-      <input type="file" id="id-image"
-             @change="onFileChanged($event)"
-             accept="image/*"
-             capture
-      />
-      <div class="img-preview">
-        <img :src="image_url" alt="">
+    <form>
+      <h1>Modifier un post</h1>
+      <div class="form-control">
+        <input type="text" id="id-title" placeholder="Titre" v-model="title" />
       </div>
-    </div>
+
+      <div class="form-control">
+        <textarea id="id-text" v-model="text" placeholder="Ecrivez un message..."></textarea>
+      </div>
+
+      <div class="form-control">
+        <input type="file" id="id-image" @change="onFileChanged($event)" accept="image/*" capture />
+        <div class="img-preview">
+          <img :src="image_url" alt="">
+        </div>
+      </div>
 
 
-    <button type="submit" className="button-all" @click.prevent="handleForm()">Mettre à jour</button>
-  </form>
-</div>
+      <button type="submit" className="button-all" @click.prevent="handleForm()">Mettre à jour</button>
+    </form>
+  </div>
 </template>

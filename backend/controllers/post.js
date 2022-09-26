@@ -15,7 +15,6 @@ exports.createPost = (req, res, next) => {
     postDoc.image_url = `${req.protocol}://${req.get('host')}/${imagesDirname}/${req.file.filename}`;
   }
 
-  // console.log("createPost" , postDoc);
   const postModel = new Post(postDoc);
 
   postModel
@@ -37,12 +36,12 @@ exports.updatePost = async (req, res, next) => {
 
   try {
     const postId = req.params.id;
-    const oldPost = await Post.findOne({_id: postId});
+    const oldPost = await Post.findOne({ _id: postId });
     const postDoc = req.body;
 
 
 
-    const docUser = await User.findOne({_id: req.auth.userId})
+    const docUser = await User.findOne({ _id: req.auth.userId })
     let isAdmin = docUser.is_admin
 
 
@@ -52,7 +51,7 @@ exports.updatePost = async (req, res, next) => {
     if (oldPost.user_id !== req.auth.userId && false === isAdmin) {
       res.status(401).json({
         type: 'error',
-        publicMessage: 'You don\'t have the permission to update this post.',
+        publicMessage: 'vous n\'avez pas les permissions pour mettre à jour ce post.',
       });
     } else {
 
@@ -71,7 +70,7 @@ exports.updatePost = async (req, res, next) => {
           if (fs.existsSync(oldPath)) {
             fs.unlink(oldPath, (err) => {
               if (err) {
-                console.error('Cannot delete old post\'s image', err);
+                console.error(err);
               }
             });
           }
@@ -106,7 +105,7 @@ exports.updatePost = async (req, res, next) => {
 exports.deletePost = async (req, res, next) => {
 
   const postId = req.params.id;
-  const oldPost = await Post.findOne({_id: postId});
+  const oldPost = await Post.findOne({ _id: postId });
   try {
 
     if (oldPost.user_id !== req.auth.userId) {
@@ -142,13 +141,13 @@ exports.getOnePost = (req, res, next) => {
     _id: req.params.id,
   })
     .then((post) => res.status(200).json(post))
-    .catch((error) => res.status(404).json({error}));
+    .catch((error) => res.status(404).json({ error }));
 };
 
 exports.getAllPosts = (req, res, next) => {
-  Post.find().sort({date_creation: -1})
+  Post.find().sort({ date_creation: -1 })
     .then((posts) => res.status(200).json(posts))
-    .catch((error) => res.status(400).json({error}));
+    .catch((error) => res.status(400).json({ error }));
 };
 
 exports.likePost = async (req, res, next) => {
@@ -157,7 +156,7 @@ exports.likePost = async (req, res, next) => {
 
 
     const postId = req.params.id;
-    const oldPost = await Post.findOne({_id: postId});
+    const oldPost = await Post.findOne({ _id: postId });
     const userId = req.auth.userId;
 
     const hasAlreadyLiked = oldPost.users_liked.includes(userId);

@@ -30,24 +30,6 @@ function handleForm() {
   formData.append('image', file.value);
   formData.append('firstname', firstname.value);
 
-  /**
-   * Issue with axios, couldn't make it work:
-   * https://github.com/axios/axios/issues/4406
-   *
-   */
-  // axios({
-  //   method: 'post',
-  //   url: apiUrl,
-  //   headers: {
-  //     'content-type': 'multipart/form-data; boundary=------abcdefgh------',
-  //   },
-  //   data: formData,
-  // }).then(function(r) {
-  //   console.log('ok réponse', r);
-  // }).catch(function(response) {
-  //   console.log('error', response);
-  //   errorMsg.value = response.data.error;
-  // });
 
   const headers = {};
   const token = localStorage.getItem('bearerToken');

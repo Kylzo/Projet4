@@ -5,6 +5,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router/dist/vue-router';
 import { useUserStore } from '../stores/user';
 
+
 const router = useRouter();
 const userStore = useUserStore();
 const email = ref('');
@@ -13,10 +14,10 @@ const errorMsg = ref('');
 const firstname = ref('')
 const lastname = ref('')
 
+
 function handleForm() {
 
     const apiUrl = import.meta.env.VITE_API_URL + '/auth/signup';
-
     const payload = {
         firstname: firstname.value,
         lastname: lastname.value,

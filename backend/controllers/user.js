@@ -20,11 +20,14 @@ exports.signup = (req, res, next) => {
           type: 'success',
           message: 'Utilisateur créé !',
         }))
-        .catch((error) => res.status(401).json({error: 'Veuillez remplir les champs obligatoires*.'})
+        .catch((error) => res.status(401).json({ error: 'Veuillez remplir les champs obligatoires*.' })
         );
     })
-    .catch((error) => res.status(500).json({error}));
+    .catch((error) => res.status(500).json({ error }));
 };
+
+
+
 
 exports.login = (req, res, next) => {
   User.findOne({
@@ -32,12 +35,12 @@ exports.login = (req, res, next) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(401).json({error: 'Adresse mail incorrecte.'});
+        return res.status(401).json({ error: 'Adresse mail incorrecte.' });
       }
       bcrypt.compare(req.body.password, user.password)
         .then(valid => {
           if (!valid) {
-            return res.status(401).json({error: 'Mot de passe incorrecte.'});
+            return res.status(401).json({ error: 'Mot de passe incorrecte.' });
           }
           res.status(200).json({
             is_admin: user.is_admin,
@@ -49,7 +52,7 @@ exports.login = (req, res, next) => {
             }),
           });
         })
-        .catch((error) => res.status(500).json({error}));
+        .catch((error) => res.status(500).json({ error }));
     })
-    .catch((error) => res.status(500).json({error}));
+    .catch((error) => res.status(500).json({ error }));
 };
