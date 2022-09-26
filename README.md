@@ -45,7 +45,11 @@ Tout d'abord créez un fichier .env contenant :
 VITE_API_URL="http://localhost:3000/api" ou autre port selon vos habitudes.
 ```
 
-Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci
+Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci et changer la direction avec la commande suivante :
+
+```sh
+cd frontend
+```
 
 
 Faites :
