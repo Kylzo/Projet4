@@ -4,7 +4,9 @@ Backend
 Tout d'abord :
 
 Créez un fichier .env contenant :
+
 IMAGE_DIRNAME=images
+
 MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournit pour la soutenance"
 
 
