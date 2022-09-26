@@ -13,16 +13,26 @@ IMAGE_DIRNAME=images
 MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournit pour la soutenance"
 ```
 
+
+Ouvrez la console de vscode avec ctrl+ù et changer la direction avec la commande suivante :
+
+```sh
+cd backend 
+```
+
+
 Ensuite :
 
 ```sh
 npm install 
 ```
 
-Et :
+Attendez que tout s'intalle.
+
+Et lancer nodemon server :
 
 ```sh
-nodemon server.js (Si ça ne fonctionne pas, supprimer le dossier node_module et relancer npm install).
+nodemon server
 ```
 
 
