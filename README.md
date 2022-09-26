@@ -29,7 +29,7 @@ npm install
 
 Attendez que tout s'intalle.
 
-Et lancer nodemon server :
+Et lancer nodemon server dans la console :
 
 ```sh
 nodemon server
