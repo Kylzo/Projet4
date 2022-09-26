@@ -59,7 +59,6 @@ exports.updatePost = async (req, res, next) => {
       // update the post
       //----------------------------------------
       const safePostDoc = {
-        date_creation: Date.now(),
         title: postDoc.title,
         text: postDoc.text,
       };
