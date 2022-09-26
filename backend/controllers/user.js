@@ -20,7 +20,7 @@ exports.signup = (req, res, next) => {
           type: 'success',
           message: 'Utilisateur créé !',
         }))
-        .catch((error) => res.status(401).json({ error: 'Veuillez remplir les champs obligatoires*.' })
+        .catch((error) => res.status(401).json({ error: 'Veuillez remplir correctements les champs obligatoires*.' })
         );
     })
     .catch((error) => res.status(500).json({ error }));

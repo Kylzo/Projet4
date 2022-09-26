@@ -30,10 +30,6 @@ function handleForm() {
     localStorage.setItem('userId', r.data.user_id);
     localStorage.setItem('is_admin', r.data.is_admin);
 
-    /**
-     * make sure axios is aware of it, so that we can directly delete post for instance,
-     * without reloading the page
-     */
     axios.defaults.headers = {
       'Authorization': `Bearer ${r.data.token}`,
     };
@@ -54,7 +50,7 @@ function handleForm() {
 
 
       <div class="form-control">
-        <input id="id-email" type="text" placeholder="Adresse e-mail" v-model="email">
+        <input id="id-email" type="email" placeholder="Adresse e-mail" v-model="email">
       </div>
 
       <div class="form-control">

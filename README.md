@@ -14,7 +14,7 @@ MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournie pou
 ```
 
 
-Ouvrez la console de vscode avec ctrl+ù et changer la direction avec la commande suivante :
+Ouvrez la console de vscode avec ctrl+ù et changez la direction avec la commande suivante :
 
 ```sh
 cd backend 
@@ -29,7 +29,7 @@ npm install
 
 Attendez que tout s'intalle.
 
-Et lancer nodemon server dans la console :
+Et lancez nodemon server dans la console :
 
 ```sh
 nodemon server
@@ -47,7 +47,7 @@ VITE_API_URL="http://localhost:3000/api"
 Ou autre port selon vos habitudes.
 
 
-Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci et changer la direction avec la commande suivante :
+Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci et changez la direction avec la commande suivante :
 
 ```sh
 cd frontend
@@ -66,4 +66,4 @@ Et :
 npm run dev 
 ```
 
-(Relancez nodemon server si vous avez déjà une DB avec des post et des utilisateurs enregistrer)
+(Relancez nodemon server si vous avez déjà une DB avec des post et des utilisateurs enregistrés.)
