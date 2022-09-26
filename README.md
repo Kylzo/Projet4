@@ -64,3 +64,4 @@ Et :
 npm run dev 
 ```
 
+(Relancez nodemon server si vous avez déjà une DB avec des post et des utilisateurs enregistrer)
