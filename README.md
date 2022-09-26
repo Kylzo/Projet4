@@ -10,7 +10,7 @@ IMAGE_DIRNAME=images
 ```
 
 ```sh
-MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournit pour la soutenance"
+MONGODB_CONNECT_URL="Votre base de données" ou "La base de données fournie pour la soutenance"
 ```
 
 
@@ -42,8 +42,10 @@ Front end
 Tout d'abord créez un fichier .env contenant :
 
 ```sh
-VITE_API_URL="http://localhost:3000/api" ou autre port selon vos habitudes.
+VITE_API_URL="http://localhost:3000/api"
 ```
+Ou autre port selon vos habitudes.
+
 
 Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci et changer la direction avec la commande suivante :
 
