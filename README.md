@@ -45,7 +45,10 @@ Tout d'abord créez un fichier .env contenant :
 VITE_API_URL="http://localhost:3000/api" ou autre port selon vos habitudes.
 ```
 
-Ensuite :
+Ouvrez une seconde fenêtre dans votre console avec le "+" en haut à droite de celle-ci
+
+
+Faites :
 
 ```sh
 npm install 
