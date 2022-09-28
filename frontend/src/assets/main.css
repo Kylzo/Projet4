@@ -365,3 +365,61 @@ footer {
     margin-top: auto;
     padding: 20px;
 }
+
+
+/* 
+
+Mobile
+
+ */
+
+
+@media (max-width: 730px) {
+
+    .logo {
+
+        width: 150px;
+
+    }
+
+    .fa-home {
+
+        font-size: 20px;
+        top: 70px;
+
+    }
+
+    header {
+
+        padding: 0px;
+
+    }
+
+    .postpage .posts-container .post-item {
+
+        width: 100%;
+
+    }
+
+    .postpage .posts-container .post-item img {
+
+        height: 400px;
+
+    }
+}
+
+
+@media (max-width: 350px) {
+
+    header nav {
+
+        flex-direction: column;
+
+    }
+
+    .postpage .posts-container .post-item img {
+
+        height: 150px;
+
+    }
+}
