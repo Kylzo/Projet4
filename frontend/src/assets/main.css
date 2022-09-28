@@ -406,6 +406,11 @@ Mobile
         height: 400px;
 
     }
+
+    .formpage form {
+
+        width: 100%;
+    }
 }
 
 
